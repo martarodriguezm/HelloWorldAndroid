@@ -1,6 +1,7 @@
 package marta.rodriguez.helloworld
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,5 +23,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        binding.doneButton.setOnClickListener {
+            val usernameValue = binding.nameEditText.text.toString()
+            if(usernameValue.isNotEmpty()) {
+                startActivity(SecondActivity.getCallingIntent(this, usernameValue))
+            } else {
+                Toast.makeText(this, "Name field is mandatory", Toast.LENGTH_SHORT)
+            }
+        }
     }
 }
