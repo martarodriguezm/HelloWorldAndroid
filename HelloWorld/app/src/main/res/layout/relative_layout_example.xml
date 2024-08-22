@@ -71,7 +71,7 @@
         android:lineSpacingExtra="12sp"
         android:text="Cras malesuada efficitur neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ultrices arcu eu massa scelerisque." />
 
-    <Button
+    <Button android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
