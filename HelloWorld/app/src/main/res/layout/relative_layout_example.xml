@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="16dp"
+        android:textColor="#1f2f42"
+        android:lineSpacingExtra="8sp"
+        android:layout_below="@id/image"
+        android:text="Cras mattis, diam nec ultricies sodales." />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:layout_marginStart="16dp"
+        android:textSize="11sp"
+        android:textColor="#ffffff"
+        android:background="#000000"
+        android:gravity="center"
+        android:layout_below="@id/title"
+        android:layout_alignParentEnd="true"
+        android:text="Lorem Ipsum" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:layout_marginStart="16dp"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:layout_below="@id/title"
+        android:layout_toStartOf="@id/label"
+        android:text="2024" />
+
+    <TextView
+        android:id="@+id/first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#bf1f2f42"
+        android:lineSpacingExtra="12sp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/label"
+        android:text="Cras malesuada efficitur neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ultrices arcu eu massa scelerisque, in egestas dui fringilla. " />
+
+    <TextView
+        android:id="@+id/second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#bf1f2f42"
+        android:layout_margin="16dp"
+        android:layout_below="@id/first"
+        android:lineSpacingExtra="12sp"
+        android:text="Cras malesuada efficitur neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ultrices arcu eu massa scelerisque." />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/second"
+        android:layout_margin="16sp"
+        android:text="Save"/>
+</RelativeLayout>
