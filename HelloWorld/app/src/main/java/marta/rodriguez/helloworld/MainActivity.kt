@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             if(usernameValue.isNotEmpty()) {
                 startActivity(SecondActivity.getCallingIntent(this, usernameValue))
             } else {
-                Toast.makeText(this, "Name field is mandatory", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.name_mandatory), Toast.LENGTH_SHORT).show()
             }
         }
     }

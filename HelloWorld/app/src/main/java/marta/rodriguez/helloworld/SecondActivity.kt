@@ -48,7 +48,7 @@ class SecondActivity : AppCompatActivity() {
         })
 
         val username = intent.extras!!.getString(USERNAME_ID)
-        binding.usernameTextView.text = "Hello "+username+"!"
+        binding.usernameTextView.text = getString(R.string.hello, username)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
