@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
+    <string name="app_name">Hello World</string>
     <string name="username">Name</string>
     <string name="name_mandatory">Name field is mandatory</string>
     <string name="hello">Hello %s! Welcome to my app.</string>
