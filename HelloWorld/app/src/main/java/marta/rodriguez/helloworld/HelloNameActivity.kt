@@ -4,44 +4,47 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import marta.rodriguez.helloworld.databinding.ActivityMainBinding
-import marta.rodriguez.helloworld.databinding.ActivitySecondBinding
+import marta.rodriguez.helloworld.SecondActivity.Companion.USERNAME_ID
+import marta.rodriguez.helloworld.databinding.ActivityHelloNameBinding
 
-class SecondActivity : AppCompatActivity() {
+class HelloNameActivity : AppCompatActivity() {
 
     companion object {
-        const val USERNAME_ID = "username_id_key"
-
-        fun getCallingIntent(context : Context, username: String) : Intent {
-            var intent = Intent(context, SecondActivity::class.java)
-            intent.putExtra(USERNAME_ID, username)
+        fun getCallingIntent(context : Context) : Intent {
+            var intent = Intent(context, HelloNameActivity::class.java)
             return intent
         }
     }
 
-    private lateinit var binding: ActivitySecondBinding
+    private lateinit var binding : ActivityHelloNameBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding = ActivitySecondBinding.inflate(layoutInflater)
+        binding = ActivityHelloNameBinding.inflate(layoutInflater)
         setContentView(binding.main)
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left+15, systemBars.top+15, systemBars.right+15, systemBars.bottom+15)
             insets
         }
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val username = intent.extras!!.getString(USERNAME_ID)
-        binding.usernameTextView.text = getString(R.string.hello, username)
+        binding.doneButton.setOnClickListener {
+            val usernameValue = binding.nameEditText.text.toString()
+            if(usernameValue.isNotEmpty()) {
+                startActivity(SecondActivity.getCallingIntent(this, usernameValue))
+            } else {
+                Toast.makeText(this, R.string.name_mandatory, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

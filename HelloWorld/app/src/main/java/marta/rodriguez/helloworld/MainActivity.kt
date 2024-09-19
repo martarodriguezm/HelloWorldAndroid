@@ -23,13 +23,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.doneButton.setOnClickListener {
-            val usernameValue = binding.nameEditText.text.toString()
-            if(usernameValue.isNotEmpty()) {
-                startActivity(SecondActivity.getCallingIntent(this, usernameValue))
-            } else {
-                Toast.makeText(this, R.string.name_mandatory, Toast.LENGTH_LONG).show()
-            }
+        binding.helloWorldButton.setOnClickListener {
+            startActivity(HelloNameActivity.getCallingIntent(this))
         }
     }
 }
