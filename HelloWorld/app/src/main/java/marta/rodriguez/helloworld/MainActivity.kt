@@ -11,6 +11,8 @@ import marta.rodriguez.helloworld.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    private val viewPadding = 15
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -19,12 +21,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left + 15, systemBars.top + 15, systemBars.right + 15, systemBars.bottom + 15)
+            v.setPadding(systemBars.left + viewPadding, systemBars.top + viewPadding, systemBars.right + viewPadding, systemBars.bottom + viewPadding)
             insets
         }
 
         binding.helloWorldButton.setOnClickListener {
             startActivity(HelloNameActivity.getCallingIntent(this))
+        }
+
+        binding.happyBirthdayButton.setOnClickListener {
+            startActivity(BirthdayCardActivity.getCallingIntent(this))
         }
     }
 }

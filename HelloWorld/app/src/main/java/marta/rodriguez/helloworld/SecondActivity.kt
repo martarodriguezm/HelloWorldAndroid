@@ -25,6 +25,8 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
+    private val viewPadding = 15
+
     private lateinit var binding: ActivitySecondBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +38,7 @@ class SecondActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left+15, systemBars.top+15, systemBars.right+15, systemBars.bottom+15)
+            v.setPadding(systemBars.left + viewPadding, systemBars.top + viewPadding, systemBars.right + viewPadding, systemBars.bottom + viewPadding)
             insets
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

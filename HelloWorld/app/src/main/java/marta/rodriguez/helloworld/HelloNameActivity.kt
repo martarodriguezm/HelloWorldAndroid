@@ -15,12 +15,15 @@ import marta.rodriguez.helloworld.databinding.ActivityHelloNameBinding
 
 class HelloNameActivity : AppCompatActivity() {
 
+
     companion object {
         fun getCallingIntent(context : Context) : Intent {
             var intent = Intent(context, HelloNameActivity::class.java)
             return intent
         }
     }
+
+    private val viewPadding = 15
 
     private lateinit var binding : ActivityHelloNameBinding
 
@@ -32,7 +35,7 @@ class HelloNameActivity : AppCompatActivity() {
         setContentView(binding.main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left+15, systemBars.top+15, systemBars.right+15, systemBars.bottom+15)
+            v.setPadding(systemBars.left + viewPadding, systemBars.top + viewPadding, systemBars.right + viewPadding, systemBars.bottom + viewPadding)
             insets
         }
 

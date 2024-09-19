@@ -13,13 +13,17 @@
         android:theme="@style/Theme.HelloWorld"
         tools:targetApi="31">
         <activity
-            android:name=".HelloNameActivity"
+            android:name=".BirthdayCardActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".HelloNameActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".SecondActivity"
-            android:parentActivityName=".HelloNameActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HelloNameActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
