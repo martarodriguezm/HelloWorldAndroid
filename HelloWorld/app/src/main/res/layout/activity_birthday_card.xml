@@ -11,7 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
+        android:alpha="0.8"
         android:src="@drawable/card_background"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@id/happy_birthday_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/cake"/>
 
     <TextView
         android:id="@+id/happy_birthday_text_view"
@@ -22,7 +32,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         style="@style/TextAppearance.AppCompat.Title"
-        tools:text="happy birthday" />
+        tools:text="Happy Birthday"
+        android:textSize="70sp"
+        android:fontFamily="@font/creative_lettering"/>
 
     <TextView android:id="@+id/name_text_view"
         android:layout_width="wrap_content"
@@ -31,6 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         style="@style/TextAppearance.AppCompat.Subhead"
+        android:textSize="60sp"
+        android:fontFamily="@font/creative_lettering"
         tools:text="Euneiz"/>
 
     <TextView android:id="@+id/cute_text_view"
@@ -41,5 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="I wish you the best"
         style="@style/TextAppearance.AppCompat.Caption"
+        android:textSize="30sp"
         android:layout_marginTop="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

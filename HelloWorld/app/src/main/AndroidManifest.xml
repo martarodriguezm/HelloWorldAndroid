@@ -15,6 +15,7 @@
         <activity
             android:name=".BirthdayCardActivity"
             android:parentActivityName=".MainActivity"
+            android:label="@string/happy_birthday"
             android:exported="false" />
         <activity
             android:name=".HelloNameActivity"
