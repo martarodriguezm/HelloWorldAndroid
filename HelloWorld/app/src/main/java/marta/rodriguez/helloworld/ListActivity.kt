@@ -1,40 +1,35 @@
 package marta.rodriguez.helloworld
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import marta.rodriguez.helloworld.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class ListActivity : AppCompatActivity() {
+
+    companion object {
+        fun getCallingIntent(context: Context) : Intent {
+            val intent = Intent(context, ListActivity::class.java)
+            return intent
+        }
+    }
 
     private val viewPadding = 15
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.main)
+        setContentView(R.layout.activity_list)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left + viewPadding, systemBars.top + viewPadding, systemBars.right + viewPadding, systemBars.bottom + viewPadding)
             insets
         }
 
-        binding.helloWorldButton.setOnClickListener {
-            startActivity(HelloNameActivity.getCallingIntent(this))
-        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.happyBirthdayButton.setOnClickListener {
-            startActivity(BirthdayCardActivity.getCallingIntent(this))
-        }
-
-        binding.listsButton.setOnClickListener {
-            startActivity(ListActivity.getCallingIntent(this))
-        }
     }
 }
