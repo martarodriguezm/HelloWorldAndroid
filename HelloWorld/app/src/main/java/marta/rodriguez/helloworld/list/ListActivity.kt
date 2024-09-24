@@ -3,6 +3,7 @@ package marta.rodriguez.helloworld.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import marta.rodriguez.helloworld.R
 import marta.rodriguez.helloworld.databinding.ActivityListBinding
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity(), CustomAdapter.ItemListener {
 
     companion object {
         fun getCallingIntent(context: Context) : Intent {
@@ -27,7 +28,6 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -43,7 +43,12 @@ class ListActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.myRecyclerView.layoutManager = layoutManager
 
-        val dataset = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-        binding.myRecyclerView.adapter = CustomAdapter(dataset)
+        val dataset = arrayOf("Potatoes", "Bread", "Pizza", "Tomato", "Onions", "Eggs", "Pasta")
+        binding.myRecyclerView.adapter = CustomAdapter(dataset, this)
+    }
+
+    override fun itemClicked(item: String) {
+        //Toast.makeText(this, getString(R.string.selected_item) + item, Toast.LENGTH_SHORT).show()
+        startActivity(ListDetailActivity.getCallingIntent(this, item))
     }
 }
