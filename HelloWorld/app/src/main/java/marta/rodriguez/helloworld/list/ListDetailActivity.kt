@@ -17,7 +17,7 @@ class ListDetailActivity : AppCompatActivity() {
     companion object {
         const val ITEM_KEY = "item_key"
 
-        fun getCallingIntent(context : Context, item: String) : Intent {
+        fun getCallingIntent(context : Context, item: ShopItem) : Intent {
             var intent = Intent(context, ListDetailActivity::class.java)
             intent.putExtra(ITEM_KEY, item)
             return intent
@@ -40,9 +40,10 @@ class ListDetailActivity : AppCompatActivity() {
             insets
         }
 
-        val item = intent.extras!!.getString(ITEM_KEY)
-
-        setTitle(item)
-        binding.itemNameText.text = item
+        val item = intent.getParcelableExtra<ShopItem>(ITEM_KEY)
+        item?.let {
+            setTitle(item.name)
+            binding.itemNameText.text = item.name
+        }
     }
 }

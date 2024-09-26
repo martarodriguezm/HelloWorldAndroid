@@ -6,11 +6,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import marta.rodriguez.helloworld.databinding.RowItemBinding
 
-class CustomAdapter(private val dataSet: Array<String>, private val listener: ItemListener) :
+class CustomAdapter(private val dataSet: Array<ShopItem>, private val listener: ItemListener) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding: RowItemBinding) :RecyclerView.ViewHolder(binding.root) {
-        private var currentItem: String? = null
+    inner class ViewHolder(private val binding: RowItemBinding) :RecyclerView.ViewHolder(binding.root) {
+        private var currentItem: ShopItem? = null
 
         init {
             binding.root.setOnClickListener {
@@ -18,9 +18,9 @@ class CustomAdapter(private val dataSet: Array<String>, private val listener: It
             }
         }
 
-        fun bind(item: String) {
+        fun bind(item: ShopItem) {
             currentItem = item
-            binding.rowItemText.text = item
+            binding.rowItemText.text = item.name
         }
     }
 
@@ -38,6 +38,6 @@ class CustomAdapter(private val dataSet: Array<String>, private val listener: It
     override fun getItemCount() = dataSet.size
 
     interface ItemListener {
-        fun itemClicked(item: String)
+        fun itemClicked(item: ShopItem)
     }
 }

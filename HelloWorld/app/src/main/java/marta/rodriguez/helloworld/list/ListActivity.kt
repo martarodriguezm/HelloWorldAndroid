@@ -13,7 +13,6 @@ import marta.rodriguez.helloworld.R
 import marta.rodriguez.helloworld.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity(), CustomAdapter.ItemListener {
-
     companion object {
         fun getCallingIntent(context: Context) : Intent {
             val intent = Intent(context, ListActivity::class.java)
@@ -43,11 +42,16 @@ class ListActivity : AppCompatActivity(), CustomAdapter.ItemListener {
         val layoutManager = LinearLayoutManager(this)
         binding.myRecyclerView.layoutManager = layoutManager
 
-        val dataset = arrayOf("Potatoes", "Bread", "Pizza", "Tomato", "Onions", "Eggs", "Pasta")
-        binding.myRecyclerView.adapter = CustomAdapter(dataset, this)
+        //val dataset = arrayOf("Potatoes", "Bread", "Pizza", "Tomato", "Onions", "Eggs", "Pasta")
+        binding.myRecyclerView.adapter = CustomAdapter(getShopItems(), this)
     }
 
-    override fun itemClicked(item: String) {
+    private fun getShopItems() : Array<ShopItem> {
+        val dataset = arrayOf(ShopItem("Pasta"), ShopItem("Potatoes"), ShopItem("Bread"), ShopItem("Pizza"))
+        return dataset
+    }
+
+    override fun itemClicked(item: ShopItem) {
         //Toast.makeText(this, getString(R.string.selected_item) + item, Toast.LENGTH_SHORT).show()
         startActivity(ListDetailActivity.getCallingIntent(this, item))
     }
