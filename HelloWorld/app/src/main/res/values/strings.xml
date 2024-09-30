@@ -16,4 +16,5 @@
     <string name="save">Save</string>
     <string name="add_shop_item">Add Shop Item</string>
     <string name="item_quantity">Quantity: %d</string>
+    <string name="network_call">Network Call\n</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import marta.rodriguez.helloworld.databinding.ActivityMainBinding
 import marta.rodriguez.helloworld.list.ListActivity
+import marta.rodriguez.helloworld.net.PostsListActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.listsButton.setOnClickListener {
             startActivity(ListActivity.getCallingIntent(this))
+        }
+
+        binding.networkButton.setOnClickListener {
+            startActivity(PostsListActivity.getCallingIntent(this))
         }
     }
 }
