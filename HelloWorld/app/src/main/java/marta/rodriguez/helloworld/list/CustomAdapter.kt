@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import marta.rodriguez.helloworld.databinding.RowItemBinding
 
-class CustomAdapter(private val dataSet: Array<ShopItem>, private val listener: ItemListener) :
+class CustomAdapter(private var dataSet: ArrayList<ShopItem>, private val listener: ItemListener) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: RowItemBinding) :RecyclerView.ViewHolder(binding.root) {
@@ -36,6 +36,11 @@ class CustomAdapter(private val dataSet: Array<ShopItem>, private val listener: 
     }
 
     override fun getItemCount() = dataSet.size
+
+    fun addItem(newItem: ShopItem) {
+        dataSet.add(newItem)
+        notifyItemInserted(dataSet.size - 1)
+    }
 
     interface ItemListener {
         fun itemClicked(item: ShopItem)

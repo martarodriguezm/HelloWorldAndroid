@@ -11,4 +11,9 @@
     <string name="cute_text">I wish you the best</string>
     <string name="lists">Lists</string>
     <string name="selected_item">"Selected Item: "</string>
+    <string name="shop_item">item name...</string>
+    <string name="quantity">quantity</string>
+    <string name="save">Save</string>
+    <string name="add_shop_item">Add Shop Item</string>
+    <string name="item_quantity">Quantity: %d</string>
 </resources>

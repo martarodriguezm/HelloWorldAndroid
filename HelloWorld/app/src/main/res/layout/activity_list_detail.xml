@@ -12,9 +12,17 @@
         android:layout_height="wrap_content"
         tools:text="item"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center_horizontal"/>
+
+    <TextView android:id="@+id/item_quantity_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="quantity"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_name_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
