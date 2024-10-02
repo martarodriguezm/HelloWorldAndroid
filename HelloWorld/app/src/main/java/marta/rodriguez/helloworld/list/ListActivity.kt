@@ -51,8 +51,6 @@ class ListActivity : AppCompatActivity(), CustomAdapter.ItemListener {
             insets
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         binding.myRecyclerView.setHasFixedSize(true)
 
         val layoutManager = LinearLayoutManager(this)

@@ -41,7 +41,6 @@ class SecondActivity : AppCompatActivity() {
             v.setPadding(systemBars.left + viewPadding, systemBars.top + viewPadding, systemBars.right + viewPadding, systemBars.bottom + viewPadding)
             insets
         }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val username = intent.extras!!.getString(USERNAME_ID)
         binding.usernameTextView.text = getString(R.string.hello, username)

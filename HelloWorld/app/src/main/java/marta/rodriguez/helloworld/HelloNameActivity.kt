@@ -39,8 +39,6 @@ class HelloNameActivity : AppCompatActivity() {
             insets
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         binding.doneButton.setOnClickListener {
             val usernameValue = binding.nameEditText.text.toString()
             if(usernameValue.isNotEmpty()) {

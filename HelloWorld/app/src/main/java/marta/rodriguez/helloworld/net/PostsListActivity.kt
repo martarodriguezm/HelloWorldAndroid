@@ -44,8 +44,6 @@ class PostsListActivity : AppCompatActivity(), PostAdapter.PostListener {
             insets
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         binding.postsRecyclerView.setHasFixedSize(true)
 
         val layoutManager = LinearLayoutManager(this)

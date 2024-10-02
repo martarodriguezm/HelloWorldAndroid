@@ -39,8 +39,6 @@ class AddShopItemActivity : AppCompatActivity() {
             insets
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         binding.saveButton.setOnClickListener {
             val itemName = binding.itemNameEditText.text.toString()
             if(itemName.isNotEmpty()) {
