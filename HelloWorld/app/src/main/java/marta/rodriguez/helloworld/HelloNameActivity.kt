@@ -18,7 +18,7 @@ class HelloNameActivity : AppCompatActivity() {
 
     companion object {
         fun getCallingIntent(context : Context) : Intent {
-            var intent = Intent(context, HelloNameActivity::class.java)
+            val intent = Intent(context, HelloNameActivity::class.java)
             return intent
         }
     }

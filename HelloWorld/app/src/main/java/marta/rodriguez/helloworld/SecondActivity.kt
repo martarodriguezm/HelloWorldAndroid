@@ -19,7 +19,7 @@ class SecondActivity : AppCompatActivity() {
         const val USERNAME_ID = "username_id_key"
 
         fun getCallingIntent(context : Context, username: String) : Intent {
-            var intent = Intent(context, SecondActivity::class.java)
+            val intent = Intent(context, SecondActivity::class.java)
             intent.putExtra(USERNAME_ID, username)
             return intent
         }
@@ -43,6 +43,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         val username = intent.extras!!.getString(USERNAME_ID)
+
         binding.usernameTextView.text = getString(R.string.hello, username)
     }
 }
