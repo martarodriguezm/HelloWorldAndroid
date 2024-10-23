@@ -34,7 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="@string/network_call"
-        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lists_button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

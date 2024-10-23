@@ -3,6 +3,7 @@ package marta.rodriguez.helloworld.net
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -49,8 +50,6 @@ class PostsListActivity : AppCompatActivity(), PostAdapter.PostListener {
         val layoutManager = LinearLayoutManager(this)
         binding.postsRecyclerView.layoutManager = layoutManager
 
-        //val dataset = arrayOf("Potatoes", "Bread", "Pizza", "Tomato", "Onions", "Eggs", "Pasta")
-
         val call = ApiClient.apiService.getPosts()
         call.enqueue(object : Callback<ArrayList<Post>> {
             override fun onResponse(call: Call<ArrayList<Post>>, response: Response<ArrayList<Post>>) {
@@ -61,11 +60,13 @@ class PostsListActivity : AppCompatActivity(), PostAdapter.PostListener {
                     binding.postsRecyclerView.adapter = adapter
                 } else {
                     // Handle error
+                    Toast.makeText(this@PostsListActivity, R.string.network_error, Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ArrayList<Post>>, t: Throwable) {
                 // Handle failure
+                Toast.makeText(this@PostsListActivity, R.string.network_error, Toast.LENGTH_SHORT).show()
             }
         })
     }
